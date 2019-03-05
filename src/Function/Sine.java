@@ -1,4 +1,4 @@
 package Function;
 
-public class Sin {
+public class Sine {
 }

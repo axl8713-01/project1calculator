@@ -2,19 +2,11 @@ package Function;
 
 abstract class Function{
 
-    private boolean isConstant;
-
-    public Function(boolean isConstant){
-           this.isConstant = isConstant;
+    public Function(){
     }
 
     abstract double evaluate();
-//    public String toString();
-    private void derivative(){
-
-    }
-//    public abstract double intergral();
-     private boolean isConstant(){
-        return this.isConstant;
-     }
+    abstract Function derivative();
+//    abstract double integral(double A, double B, int num);
+    abstract boolean isConstant();
 }

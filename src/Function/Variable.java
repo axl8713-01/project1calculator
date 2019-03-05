@@ -7,17 +7,28 @@
 package Function;
 
 
-public class Variable() extends Function{
+public class Variable extends Function{
+    //Fields
+     public final static Variable X = new Variable();
 
-/**
- *
- */
-private double value;
+    //Constructor
+    private Variable(){
+    }
 
-/**
- *
- */
-private Constant (double value){
-        this.value = value;
-        }
+    //Methods
+
+
+    public double evaluate(double val){
+        return val;
+    }
+
+
+    public Function derivative(){
+        return new Constant(1);
+    }
+
+    public boolean isConstant(){
+        return false;
+    }
+
 }
