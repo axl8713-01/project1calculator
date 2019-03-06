@@ -1,7 +1,7 @@
 import functions.*;
 
 /**
- * A very basic test of the Function classes to help the student see
+ * A very basic test of the functions classes to help the student see
  * if his/her understanding of the interface is correct
  *
  * @author James Heliotis
@@ -10,7 +10,7 @@ public class FnTest0 {
 
     /**
      * Create a sum of variables, and then apply
-     * all the Function operations on them.
+     * all the functions operations on them.
      * The integral will go from 0 to 10.
      *
      * @param args not used
@@ -23,7 +23,7 @@ public class FnTest0 {
         Variable var = Variable.X;
         Function f = new
             Sum( var, new Constant( 9 ), var, new Constant( 11 ) );
-        System.out.println( "Function " + f );
+        System.out.println( "functions " + f );
         System.out.println( "Value at 0: " + f.evaluate( 0.0 ) );
         System.out.println( "Value at 10: " + f.evaluate( 10.0 ) );
         System.out.println( "Derivative: " + f.derivative() );
@@ -36,7 +36,7 @@ public class FnTest0 {
 
 // OUTPUT
 /*
-Function ( x + x + 20.0 )
+functions ( x + x + 20.0 )
 Value at 0: 20.0
 Value at 10: 40.0
 Derivative: 2.0

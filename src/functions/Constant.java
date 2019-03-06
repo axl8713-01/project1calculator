@@ -3,7 +3,7 @@
  * @author Albin Liang
  */
 
-package Function;
+package functions;
 
 /**
  *

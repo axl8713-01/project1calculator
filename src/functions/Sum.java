@@ -1,10 +1,13 @@
-package Function;
+package functions;
+
+import java.util.ArrayList;
 
 public class Sum extends Function{
 
     //Fields
     private Function[] terms;
     private double total;
+
     //Constructor
     public Sum(Function... terms){
         this.terms = terms;
@@ -13,7 +16,6 @@ public class Sum extends Function{
     //Methods
     public double evaluate(double val){
         for (Function terms: terms){
-            double total = 0;
             if (terms.isConstant()){
                 this.total += terms.evaluate();
             }
@@ -25,8 +27,16 @@ public class Sum extends Function{
     }
 
     public Function derivative(){
-        for (Function terms: terms){
-            terms.derivative()
+        Function[] derivatives = new Function[terms.length];
+        for (int i=0; i<terms.length; i++){
+            derivatives[i] = terms[i].derivative();
         }
+        return new Sum(derivatives);
     }
+
+    public boolean isConstant(){
+        return false;
+    }
+
+
 }
