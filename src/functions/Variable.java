@@ -33,6 +33,6 @@ public class Variable extends Function{
 
     @Override
     public String toString(){
-        return "X";
+        return "x";
     }
 }

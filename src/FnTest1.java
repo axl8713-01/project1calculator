@@ -14,23 +14,23 @@ public class FnTest1 {
      * @param args an array of name value pairs
      */
     public static void main( String[] args ) {
-        int argLen = args.length;
-        Variable var = Variable.X;
-        Function f = new
-            Product( var, new Constant( 9 ), var, new Constant( 11 ) );
-        System.out.println( "functions " + f );
-        System.out.println( "Value at 0: " + f.evaluate( 0.0 ) );
-        for ( int i = 0; i < argLen; ++i ) {
-            double value = Double.parseDouble( args[ i ] );
-            System.out.println( "Value at " + value + ": " +
-                                         f.evaluate( value ) );
+//        int argLen = args.length;
+//        Variable var = Variable.X;
+//        Function f = new
+//            Product( var, new Constant( 9 ), var, new Constant( 11 ) );
+//        System.out.println( "functions " + f );
+//        System.out.println( "Value at 0: " + f.evaluate( 0.0 ) );
+//        for ( int i = 0; i < argLen; ++i ) {
+//            double value = Double.parseDouble( args[ i ] );
+//            System.out.println( "Value at " + value + ": " +
+//                                         f.evaluate( value ) );
         }
-        System.out.println( "Derivative: " + f.derivative() );
-        System.out.println( "Integral from 0 to 10: " +
-                                    f.integral( 0.0, 10.0, 1000000 ) );
+//        System.out.println( "Derivative: " + f.derivative() );
+//        System.out.println( "Integral from 0 to 10: " +
+//                                    f.integral( 0.0, 10.0, 1000000 ) );
     }
 
-}
+//}
 
 //OUTPUT
 /*

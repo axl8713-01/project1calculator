@@ -25,7 +25,7 @@ public class Constant extends Function{
     /**
      *
      */
-    public double evaluate(){
+    public double evaluate(double value){
         return this.value;
     }
 
