@@ -13,6 +13,7 @@ public class Constant extends Function{
      *
      */
     private double value;
+    private boolean isConstant;
 
     /**
      *
@@ -20,6 +21,7 @@ public class Constant extends Function{
     public Constant (double value){
         super();
         this.value = value;
+        this.isConstant=true;
     }
 
     /**
@@ -59,6 +61,6 @@ public class Constant extends Function{
      *
      */
     public boolean isConstant(){
-        return true;
+        return this.isConstant;
     }
 }

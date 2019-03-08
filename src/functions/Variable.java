@@ -11,10 +11,12 @@ public class Variable extends Function{
 
     //Fields
      public final static Variable X = new Variable();
+    private boolean isConstant;
 
     //Constructor
     private Variable(){
         super();
+        isConstant=false;
     }
 
     //Methods
@@ -30,12 +32,12 @@ public class Variable extends Function{
     @Override
     public double integral(double A, double B, int num){
         Product closedFormConstant = new Product(this, this, new Constant(0.5));
-        double difference = (closedFormConstant.evaluate(B) - closedFormConstant.evaluate(A));
-        return difference;
+        return (closedFormConstant.evaluate(B) - closedFormConstant.evaluate(A));
+
     }
 
     public boolean isConstant(){
-        return false;
+        return isConstant;
     }
 
     @Override

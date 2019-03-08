@@ -60,12 +60,12 @@ public class Sum extends Function{
 
     @Override
     public double integral(double A, double B, int num){
-        double sumIntergrals = 0.0;
+        double sumIntegrals = 0.0;
         for (int i=0; i<terms.length; i++){
             double integral = terms[i].integral(A, B, num);
-            sumIntergrals += integral;
+            sumIntegrals += integral;
         }
-        return sumIntergrals;
+        return sumIntegrals;
     }
 
     public boolean isConstant(){

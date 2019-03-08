@@ -8,7 +8,6 @@ public class Product extends Function{
 
     //Fields
     private Function[] terms;
-    private double product;
 
 
     //Constructor
@@ -43,13 +42,13 @@ public class Product extends Function{
     //Methods
 
     public double evaluate(double val){
-        this.product=1;
+        double product=1.0;
         for (Function term: terms){
             if (term.isConstant()){
-                this.product = term.evaluate(0.0) * this.product;
+                product = term.evaluate(0.0) * product;
             }
             else {
-                this.product = this.product * val;
+                product = product * val;
             }
         }
         return product;
@@ -69,8 +68,6 @@ public class Product extends Function{
             return terms[0].derivative();
         }
     }
-
-//    public double integral(double a, double b, int num){return 0;}
 
     public boolean isConstant(){
         for (Function term : this.terms) {

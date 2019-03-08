@@ -19,50 +19,50 @@ public class FnTest2 {
      */
     @SuppressWarnings( "serial" )
     public static void main( String[] args ) {
-//        if ( args.length != 0 ) {
-//            System.err.println( "FnTest2 takes no command line arguments." );
-//            System.exit( 1 );
-//        }
-//
-//        final Function sin = new Sine( Variable.X );
-//        final Function cos = new Cosine( Variable.X );
-//        List< Function > functions = new ArrayList<>() {{
-//            add( sin );
-//            add( cos );
-//            add( cos.derivative() );
-//            add( new Sum( Variable.X, new Constant( 1.5 ),
-//                          new Sum( Variable.X, new Constant( 2.0 ) )
-//            ) );
-//            add( new Sum( new Product( Variable.X, new Constant( 1.5 ) ),
-//                          new Product( Variable.X, new Constant( 2.0 ) )
-//            ) );
-//        }};
-//
-//        for ( Function func: functions ) {
-//            System.out.println( func + " is " +
-//                            ( func.isConstant() ? "" : "not " ) +
-//                            "a constant." );
-//            System.out.println( "The derivative of " + func +
-//                    " is " + func.derivative() +
-//                    ", which is " +
-//                    ( func.derivative().isConstant() ? "" : "not " ) +
-//                    "a constant." );
-//        }
-//
-//        System.out.println();
-//
-//        System.out.printf( "%4s %8s %8s %8s %8s %8s\n",
-//                "x", "sin", "cos", "cos'", "fn#4", "fn#5" );
-//        System.out
-//                .println( "=================================================" );
-//        for ( double x = 0; x <= Math.PI; x += 0.1 ) {
-//            System.out.printf( "%4.2f", x );
-//            for ( Function f: functions ) {
-//                System.out.printf( " %8.4f", f.evaluate( x ) );
-//            }
-//            System.out.println();
-//        }
-//        System.out.println();
+        if ( args.length != 0 ) {
+            System.err.println( "FnTest2 takes no command line arguments." );
+            System.exit( 1 );
+        }
+
+        final Function sin = new Sine( Variable.X );
+        final Function cos = new Cosine( Variable.X );
+        List< Function > functions = new ArrayList<>() {{
+            add( sin );
+            add( cos );
+            add( cos.derivative() );
+            add( new Sum( Variable.X, new Constant( 1.5 ),
+                          new Sum( Variable.X, new Constant( 2.0 ) )
+            ) );
+            add( new Sum( new Product( Variable.X, new Constant( 1.5 ) ),
+                          new Product( Variable.X, new Constant( 2.0 ) )
+            ) );
+        }};
+
+        for ( Function func: functions ) {
+            System.out.println( func + " is " +
+                            ( func.isConstant() ? "" : "not " ) +
+                            "a constant." );
+            System.out.println( "The derivative of " + func +
+                    " is " + func.derivative() +
+                    ", which is " +
+                    ( func.derivative().isConstant() ? "" : "not " ) +
+                    "a constant." );
+        }
+
+        System.out.println();
+
+        System.out.printf( "%4s %8s %8s %8s %8s %8s\n",
+                "x", "sin", "cos", "cos'", "fn#4", "fn#5" );
+        System.out
+                .println( "=================================================" );
+        for ( double x = 0; x <= Math.PI; x += 0.1 ) {
+            System.out.printf( "%4.2f", x );
+            for ( Function f: functions ) {
+                System.out.printf( " %8.4f", f.evaluate( x ) );
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
 }
