@@ -16,7 +16,7 @@ public class Product extends Function{
         ArrayList<Function> nonConstants = new ArrayList<>();
         for (Function term : terms) {
             if (term.isConstant()) {
-                totalCoefficient = term.evaluate(0.0)*totalCoefficient;
+                totalCoefficient = term.evaluate(1.0)*totalCoefficient;
             }
             else {
                 nonConstants.add(term);
@@ -44,13 +44,13 @@ public class Product extends Function{
     public double evaluate(double val){
         double product=1.0;
         for (Function term: terms){
-            if (term.isConstant()){
-                product = term.evaluate(0.0) * product;
+            product = product * term.evaluate(val);
+//            if (term.isConstant()){
+//                product = term.evaluate(0.0) * product;
+//            }
+//            else {
+//                product = product * val;
             }
-            else {
-                product = product * val;
-            }
-        }
         return product;
     }
 

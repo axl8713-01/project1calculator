@@ -13,7 +13,7 @@ public class Cosine extends Function{
     //Methods
 
     public double evaluate(double val){
-        return Math.cos(val);
+        return Math.cos(subordinate.evaluate(val));
     }
 
     public Function derivative() {

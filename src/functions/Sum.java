@@ -6,7 +6,6 @@ public class Sum extends Function{
 
     //Fields
     private Function[] terms;
-    private double total;
 
     //Constructor
     public Sum(Function... terms) {
@@ -19,6 +18,7 @@ public class Sum extends Function{
                 nonConstants.add(term);
             }
         }
+
         if (totalConstant == 0.0 && terms.length == 1 && terms[0].isConstant()) {
             Function[] sum = new Function[1];
             sum[0] = new Constant(0);
@@ -36,16 +36,13 @@ public class Sum extends Function{
             this.terms = nonConstants.toArray(this.terms);
         }
     }
+
     //Methods
+
     public double evaluate(double val){
-        this.total=0;
+        double total =  0.0;
         for (Function term: terms){
-            if (term.isConstant()){
-                this.total += term.evaluate(0.0);
-            }
-            else {
-                this.total += val;
-            }
+            total += term.evaluate(val);
         }
         return total;
     }

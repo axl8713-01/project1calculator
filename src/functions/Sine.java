@@ -13,7 +13,7 @@ public class Sine extends Function {
     //Methods
 
     public double evaluate(double val){
-        return Math.sin(val);
+        return Math.sin(subordinate.evaluate(val));
     }
 
     public Function derivative() {
