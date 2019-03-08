@@ -5,7 +5,8 @@ import java.util.Arrays;
 
 
 /**
- *
+ * Product is a composite class that can be made with variable number of function arguments
+ * to represent a product function.
  *
  * @author Albin Liang
  */
@@ -13,10 +14,22 @@ import java.util.Arrays;
 public class Product extends Function{
 
     //Fields
+    /**
+     * the native array of terms held by the product function.
+     */
     private Function[] terms;
 
 
     //Constructor
+    /**
+     * The product constructor checks for several cases. The initial coefficient is set to 1.0, and the non constants
+     * are held in an array list and the coefficient is multiplied by the constants in the arguments. Then the
+     * coefficient is check to see it is an identity. If it is 0 , zero out the product and lastly create a product
+     * with the nonconstant terms and the coefficient.
+     *
+     * @param terms the variable arguments of Functions object, passed as individual functions or a native array of
+     *              functions.
+     */
     public Product(Function... terms){
         double totalCoefficient = 1.0;
         ArrayList<Function> nonConstants = new ArrayList<>();
@@ -47,6 +60,13 @@ public class Product extends Function{
 
     //Methods
 
+    /**
+     * the value of the product is the product multiplied by the the evaluations of each term in the product with the
+     * value inputted.
+     *
+     * @param val the double value inputted by user for for the variable.
+     * @return
+     */
     public double evaluate(double val){
         double product=1.0;
         for (Function term: terms){
@@ -60,6 +80,14 @@ public class Product extends Function{
         return product;
     }
 
+
+    /**
+     * The derivative of a product is a sum of the product of the first term differentiated, with the rest of the terms,
+     * and the product of the rest of the terms differentiated with the first time. I used a recursive approach where
+     * I create native subarrays of all the terms, slicing the first and the rest and then differentiate the terms
+     * separately. Holding the rest as a product of the rest of the terms and polymorphism would recursively
+     * differentiate the term simulating the chain rule.
+     */
     public Function derivative(){
         if (terms.length > 1){
         Function[] firstTerm = Arrays.copyOfRange(terms,0,1);
@@ -70,11 +98,14 @@ public class Product extends Function{
         Product secondHalf = new Product(firstTerm[0], restTermDerivatives);
         return new Sum(firstHalf,secondHalf);
         }
-        else {
+        else {// if there is only one term, return the derivative of that one term.
             return terms[0].derivative();
         }
     }
 
+    /**
+     * the product is a constant if the base case is a constant and or all it's leaves are constants.
+     */
     public boolean isConstant(){
         for (Function term : this.terms) {
             if (!term.isConstant()) {
@@ -84,6 +115,10 @@ public class Product extends Function{
         return true;
     }
 
+    /**
+     * similiar to the Sum toString except it concatenates a asterisk(*) instead.
+     * @return
+     */
     @Override
     public String toString() {
         if (terms.length > 1) {
