@@ -70,7 +70,7 @@ public class Product extends Function{
         }
     }
 
-//    public Function intergral(){}
+//    public double integral(double a, double b, int num){return 0;}
 
     public boolean isConstant(){
         for (Function term : this.terms) {

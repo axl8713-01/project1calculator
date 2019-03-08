@@ -47,7 +47,13 @@ public class Constant extends Function{
     /**
      *
      */
-//    public double integral(double A, double B, int n){
+   @Override
+    public double integral(double A, double B, int num){
+       Variable var = Variable.X;
+       Product closedFormConstant = new Product(this, var);
+       double difference = closedFormConstant.evaluate(B) - closedFormConstant.evaluate(A);
+       return difference;
+    }
 
     /**
      *

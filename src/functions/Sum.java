@@ -19,7 +19,13 @@ public class Sum extends Function{
                 nonConstants.add(term);
             }
         }
-        if (totalConstant == 0.0) {
+        if (totalConstant == 0.0 && terms.length == 1 && terms[0].isConstant()) {
+            Function[] sum = new Function[1];
+            sum[0] = new Constant(0);
+            this.terms = sum;
+        }
+
+        else if (totalConstant == 0.0) {
             this.terms = new Function[nonConstants.size()];
             this.terms = nonConstants.toArray(this.terms);
         }
@@ -52,7 +58,15 @@ public class Sum extends Function{
         return new Sum(derivatives);
     }
 
-//    public Function intergral(){}
+    @Override
+    public double integral(double A, double B, int num){
+        double sumIntergrals = 0.0;
+        for (int i=0; i<terms.length; i++){
+            double integral = terms[i].integral(A, B, num);
+            sumIntergrals += integral;
+        }
+        return sumIntergrals;
+    }
 
     public boolean isConstant(){
        for (Function term : this.terms) {

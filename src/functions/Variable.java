@@ -27,6 +27,13 @@ public class Variable extends Function{
         return new Constant(1);
     }
 
+    @Override
+    public double integral(double A, double B, int num){
+        Product closedFormConstant = new Product(this, this, new Constant(0.5));
+        double difference = (closedFormConstant.evaluate(B) - closedFormConstant.evaluate(A));
+        return difference;
+    }
+
     public boolean isConstant(){
         return false;
     }

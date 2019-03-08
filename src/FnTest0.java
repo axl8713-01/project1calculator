@@ -27,9 +27,9 @@ public class FnTest0 {
         System.out.println( "Value at 0: " + f.evaluate( 0.0 ) );
         System.out.println( "Value at 10: " + f.evaluate( 10.0 ) );
         System.out.println( "Derivative: " + f.derivative() );
-//        double iResult = 0.0;
-//        iResult = f.integral( 0.0, 10.0, 1000000 );
-//        System.out.println( "Integral from 0 to 10: " + iResult );
+        double iResult = 0.0;
+        iResult = f.integral( 0.0, 10.0, 1000000 );
+        System.out.println( "Integral from 0 to 10: " + iResult );
     }
 
 }
