@@ -9,7 +9,7 @@ public class Sum extends Function{
     private double total;
 
     //Constructor
-    public Sum(Function... terms){
+    public Sum(Function... terms) {
         double totalConstant = 0.0;
         ArrayList<Function> nonConstants = new ArrayList<>();
         for (Function term : terms) {
@@ -19,18 +19,23 @@ public class Sum extends Function{
                 nonConstants.add(term);
             }
         }
-        Function total = new Constant(totalConstant);
-        nonConstants.add(total);
-        this.terms = new Function[nonConstants.size()];
-        this.terms = nonConstants.toArray(this.terms);
-
+        if (totalConstant == 0.0) {
+            this.terms = new Function[nonConstants.size()];
+            this.terms = nonConstants.toArray(this.terms);
+        }
+        else {
+            Function total = new Constant(totalConstant);
+            nonConstants.add(total);
+            this.terms = new Function[nonConstants.size()];
+            this.terms = nonConstants.toArray(this.terms);
+        }
     }
-
     //Methods
     public double evaluate(double val){
-        for (Function terms: terms){
-            if (terms.isConstant()){
-                this.total += terms.evaluate(0.0);
+        this.total=0;
+        for (Function term: terms){
+            if (term.isConstant()){
+                this.total += term.evaluate(0.0);
             }
             else {
                 this.total += val;
@@ -59,12 +64,22 @@ public class Sum extends Function{
     }
 
     @Override
-    public String toString(){
-        String ret = "( ";
-        for (Function term: terms){
-            ret += term.toString() + " + ";
+    public String toString() {
+        if (terms.length > 1) {
+            StringBuilder string = new StringBuilder("( ");
+            for (int i = 0; i < terms.length; i++)
+                if (i != terms.length - 1) {
+                    string.append(terms[i].toString());
+                    string.append(" + ");
+                } else {
+                    string.append(terms[i].toString());
+                }
+            string.append(" )");
+            return string.toString();
         }
-        return ret + " )";
+        else {
+            return terms[0].toString();
+        }
     }
 
 }
