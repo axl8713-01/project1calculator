@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
+/**
+ *
+ *
+ * @author Albin Liang
+ */
+
 public class Product extends Function{
 
     //Fields

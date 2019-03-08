@@ -1,6 +1,12 @@
 package functions;
 
 
+/**
+ *
+ *
+ * @author Albin Liang
+ */
+
 public class Cosine extends Function{
     //Fields
     private Function subordinate;

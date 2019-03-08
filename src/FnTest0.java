@@ -6,6 +6,7 @@ import functions.*;
  *
  * @author James Heliotis
  */
+
 public class FnTest0 {
 
     /**

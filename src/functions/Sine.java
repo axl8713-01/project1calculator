@@ -1,5 +1,13 @@
 package functions;
 
+
+
+/**
+ *
+ *
+ * @author Albin Liang
+ */
+
 public class Sine extends Function {
 
     //Fields
