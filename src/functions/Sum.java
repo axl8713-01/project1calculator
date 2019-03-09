@@ -37,12 +37,20 @@ public class Sum extends Function{
             }
         }
 
+        if (totalConstant == 0.0 && terms.length == 0){
+            Function[] sum = new Function[1];
+            sum[0] = new Constant(0);
+            this.terms = sum;
+        }
+
         if (totalConstant == 0.0 && terms.length == 1 && terms[0].isConstant()) {//the zero case by itself
             Function[] sum = new Function[1];
             sum[0] = new Constant(0);
             this.terms = sum;//pass the zero as the only term.
         }
-
+//        else if (totalConstant == 0.0) {
+//
+//        }
         else if (totalConstant == 0.0) { //if it is just adding a zero to non constants, return only non constants
             this.terms = new Function[nonConstants.size()];
             this.terms = nonConstants.toArray(this.terms);
@@ -128,9 +136,9 @@ public class Sum extends Function{
             string.append(" )");
             return string.toString();
         }
-        else {//when there is only one term.
-            return terms[0].toString();
+        else {
+            Function singleTerm = terms[0];
+            return singleTerm.toString();
         }
     }
-
 }
