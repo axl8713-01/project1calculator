@@ -24,9 +24,9 @@ public class FunctionTest1 {
         final Function s1 = new Sum(new Constant(0));
         System.out.println("Testing single constant zero in sum: \n s1: " + s1.toString() + "\nExpected Output: 0.0\n");
         final Function s2 = new Sum(var);
-        System.out.println("Testing single var: \n s3: " + s2.toString() + "\nExpected Output:  x \n");
+        System.out.println("Testing single var: \n s2: " + s2.toString() + "\nExpected Output:  x \n");
         final Function s3 = new Sum(var, new Constant(2));
-        System.out.println("Testing basic constant plus var: \n s4: " + s3.toString() + "\nExpected Output: ( x + 2.0 )\n");
+        System.out.println("Testing basic constant plus var: \n s3: " + s3.toString() + "\nExpected Output: ( x + 2.0 )\n");
         final Function s4 = new Sum(s3, s2, s3, s2, s3, s1);
         System.out.println("Testing sum of sums and multiple variable and zero with non-constant terms:" +
                 " \n s4: " + s4.toString() + "\nExpected Output: (( x + 2.0 ) + x + ( x + 2.0 ) + x + " +
@@ -46,17 +46,20 @@ public class FunctionTest1 {
             ));
         }};
 
-        System.out.println("Conducting Tests of Sums isConstant and derivatives \n");
+        System.out.println("Conducting Tests of Sums evaluate, derivatives, and, isConstant, \n");
 
         for (Function func : functions) {
-            System.out.println(func + " is " +
+            System.out.println("function: " + func + " is " +
                     (func.isConstant() ? "" : "not ") +
                     "a constant.");
+
+            System.out.println("function is " + func.evaluate(25.52) + " evaluated at 25.52");
+
             System.out.println("The derivative of " + func +
                     " is " + func.derivative() +
                     ", which is " +
                     (func.derivative().isConstant() ? "" : "not ") +
-                    "a constant.");
+                    "a constant.\n");
         }
     }
 }
